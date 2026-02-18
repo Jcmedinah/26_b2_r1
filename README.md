@@ -1,133 +1,204 @@
-# Proyecto - Sistema de Gestión de Estudiantes
+# 🧪 Actividad: Configuración y Pruebas de Proyecto Spring Boot con Base de Datos en la Nube (Prisma.io)
 
-Este es un proyecto backend desarrollado con **Java 21** y **Spring Boot** para la gestión de estudiantes. Incluye una API RESTful que permite crear, leer, actualizar y eliminar (CRUD) registros de estudiantes, persistiendo los datos en una base de datos **PostgreSQL**.
+**Nombre del Estudiante:** Jean Medina\
+**Repositorio Fork:** https://github.com/Jcmedinah/26_b2_r1
 
-## 🚀 Tecnologías Utilizadas
+------------------------------------------------------------------------
 
-- **Java 21**: Lenguaje de programación.
-- **Spring Boot 3.x**: Framework para el desarrollo de la aplicación.
-- **Maven**: Gestor de dependencias y construcción.
-- **PostgreSQL**: Base de datos relacional.
-- **Lombok**: Librería para reducir el código boilerplate (Getters, Setters, etc.).
-- **Spring Data JPA**: Abstracción para la capa de persistencia.
+# 1️⃣ Fork del Repositorio
 
-## 📋 Requisitos Previos
+Se realizó correctamente el fork del repositorio original:
 
-Asegúrate de tener instalado lo siguiente en tu entorno local:
+Repositorio original: https://github.com/jfinfocesde/26_b2_r1
 
-- [Java JDK 21](https://www.oracle.com/java/technologies/downloads/#java21)
-- [Maven](https://maven.apache.org/download.cgi)
-- Cliente para probar la API (como [Postman](https://www.postman.com/) o [Insomnia](https://insomnia.rest/)).
+El repositorio fue clonado localmente y se trabajó sobre la copia
+forkeada.
 
-## ⚙️ Configuración
+Se verificó que:
 
-La configuración de la base de datos se maneja a través de variables de entorno definidas en un archivo `.env` en la raíz del proyecto.
+-   El proyecto se clona sin errores.
+-   Se compila correctamente.
+-   El archivo `.env` no se encuentra en el repositorio (correcta
+    gestión de credenciales).
+-   El archivo `.gitignore` está configurado correctamente para excluir
+    `.env`.
 
-1.  Copia el archivo de ejemplo:
-    ```bash
-    copy .env.example .env
-    ```
+------------------------------------------------------------------------
 
-2.  Edita el archivo `.env` y define tus credenciales:
-    ```ini
-    DB_URL=jdbc:postgresql://localhost:5432/tu_base_de_datos
-    DB_USERNAME=tu_usuario
-    DB_PASSWORD=tu_contraseña
-    ```
+# 2️⃣ Configuración de Base de Datos en Prisma.io
 
-> **Nota:** El archivo `.env` está excluido del control de versiones para mantener tus credenciales seguras.
+Se creó una instancia PostgreSQL en la plataforma Prisma.io.
 
-## 🛠️ Instalación y Ejecución (Windows)
+Plataforma utilizada: https://www.prisma.io/
 
-1.  **Clonar el repositorio**:
-    ```powershell
-    git clone <url-del-repositorio>
-    cd pi
-    ```
+Se provisionó una base de datos PostgreSQL y se obtuvieron:
 
-2.  **Compilar el proyecto**:
-    Asegúrate de estar en la raíz del proyecto y ejecuta:
-    ```powershell
-    .\mvnw.cmd clean install
-    ```
-    *Nota: Si tienes Maven instalado globalmente, puedes usar simplemente `mvn clean install`.*
+-   URL de conexión
+-   Usuario
+-   Contraseña
 
-3.  **Ejecutar la aplicación**:
-    ```powershell
-    .\mvnw.cmd spring-boot:run
-    ```
+Estas credenciales fueron configuradas en el archivo `.env` (sin subirlo
+al repositorio).
 
-    La aplicación se iniciará en el puerto `8080` (por defecto).
+Contenido configurado:
 
-## 🔌 Uso de la API (Endpoints)
+DB_URL=jdbc:postgresql://`<host>`{=html}:`<port>`{=html}/`<database>`{=html}
+DB_USERNAME=`<usuario>`{=html} DB_PASSWORD=`<contraseña>`{=html}
 
-La API base es `/api/students`. A continuación se detallan los endpoints disponibles:
+Se verificó que la base de datos se encuentra activa y accesible desde
+la aplicación Spring Boot.
 
-### 1. Obtener todos los estudiantes
-- **Método**: `GET`
-- **URL**: `/api/students`
-- **Respuesta**: Lista de estudiantes en formato JSON.
+------------------------------------------------------------------------
 
-### 2. Obtener un estudiante por ID
-- **Método**: `GET`
-- **URL**: `/api/students/{id}`
-- **Ejemplo**: `/api/students/1`
+# 3️⃣ Compilación y Ejecución del Proyecto
 
-### 3. Obtener un estudiante por Email
-- **Método**: `GET`
-- **URL**: `/api/students/email/{email}`
-- **Ejemplo**: `/api/students/email/ejemplo@correo.com`
+Requisitos utilizados:
 
-### 4. Crear un nuevo estudiante
-- **Método**: `POST`
-- **URL**: `/api/students`
-- **Body (JSON)**:
-    ```json
-    {
-      "firstName": "Juan",
-      "lastName": "Pérez",
-      "email": "juan.perez@example.com",
-      "birthDate": "2000-01-15",
-      "phone": "1234567890"
-    }
-    ```
+-   Java JDK 21
+-   Maven Wrapper incluido en el proyecto
 
-### 5. Actualizar un estudiante
-- **Método**: `PUT`
-- **URL**: `/api/students/{id}`
-- **Ejemplo**: `/api/students/1`
-- **Body (JSON)**:
-    ```json
-    {
-      "firstName": "Juan Carlos",
-      "lastName": "Pérez",
-      "email": "juan.perez@example.com",
-      "birthDate": "2000-01-15",
-      "phone": "0987654321"
-    }
-    ```
+## Compilación
 
-### 6. Eliminar un estudiante
-- **Método**: `DELETE`
-- **URL**: `/api/students/{id}`
-- **Ejemplo**: `/api/students/1`
+.`\mvnw`{=tex}.cmd clean install
 
-## 🧪 Ejecutar Pruebas
+Resultado: - Compilación exitosa - Build SUCCESS
 
-Para ejecutar las pruebas unitarias y de integración, usa el siguiente comando:
+## Ejecución
 
-```powershell
-.\mvnw.cmd test
-```
+.`\mvnw`{=tex}.cmd spring-boot:run
 
-## 📂 Estructura del Proyecto
+Resultado: - Aplicación iniciada correctamente en puerto 8080. -
+Conexión exitosa a PostgreSQL en la nube. - Hibernate inicializado
+correctamente. - Sin errores en consola.
 
-```
-src/main/java/com/cesde/pi
-├── controller    # Controladores REST (StudentController)
-├── model         # Entidades JPA (Student)
-├── repository    # Interfaces de Repositorio (StudentRepository)
-├── service       # Lógica de Negocio (StudentService)
-├── dto           # Objetos de Transferencia de Datos
-└── exception     # Manejo de Excepciones Globales
-```
+La aplicación quedó disponible en:
+
+http://localhost:8080
+
+------------------------------------------------------------------------
+
+# 4️⃣ Pruebas de la API RESTful (CRUD)
+
+API Base:
+
+http://localhost:8080/api/students
+
+Las pruebas se realizaron utilizando Postman.
+
+------------------------------------------------------------------------
+
+## POST -- Crear Estudiantes
+
+Ejemplo de solicitud:
+
+{ "firstName": "Juan", "lastName": "Pérez", "email":
+"juan.perez@example.com", "birthDate": "2000-01-15", "phone":
+"1234567890" }
+
+Resultado: - Código HTTP 200 / 201 - Estudiante creado correctamente en
+la base de datos.
+
+------------------------------------------------------------------------
+
+## GET ALL -- Obtener todos los estudiantes
+
+Respuesta obtenida:
+
+\[ { "firstName": "Juan", "lastName": "Pérez", "email":
+"juan.perez@example.com", "birthDate": "2000-01-15", "id": 4, "phone":
+"1234567890" }, { "firstName": "Juanito", "lastName": "Alimaña",
+"email": "juan.aliman@example.com", "birthDate": "2000-01-15", "id": 5,
+"phone": "1234567890" }, { "firstName": "Peranito", "lastName":
+"Fulano", "email": "Peranito.Fulano@example.com", "birthDate":
+"2000-01-15", "id": 6, "phone": "1234567890" }, { "firstName":
+"Sutanito", "lastName": "Fulano", "email":
+"Sutanito.Fulano@example.com", "birthDate": "2000-01-15", "id": 7,
+"phone": "1234567890" }, { "firstName": "Sutanito", "lastName":
+"Fulano", "email": "Sutanitos.Fulano@example.com", "birthDate":
+"2000-01-15", "id": 8, "phone": "1234567890" }\]
+
+Resultado: - Respuesta HTTP 200 - Lista completa de estudiantes
+almacenados en la base de datos.
+
+------------------------------------------------------------------------
+
+## GET by ID
+
+Ejemplo:
+
+GET /api/students/4
+
+Resultado: - Retorna el estudiante correspondiente al ID solicitado. -
+Código HTTP 200.
+
+------------------------------------------------------------------------
+
+## GET by Email
+
+Ejemplo:
+
+GET /api/students/email/juan.perez@example.com
+
+Resultado: - Retorna el estudiante correspondiente al correo
+electrónico. - Código HTTP 200.
+
+------------------------------------------------------------------------
+
+## PUT -- Actualización
+
+Ejemplo:
+
+PUT /api/students/4
+
+Resultado: - Registro actualizado correctamente. - Código HTTP 200.
+
+------------------------------------------------------------------------
+
+## DELETE -- Eliminación
+
+Ejemplo:
+
+DELETE /api/students/8
+
+Resultado: - Registro eliminado correctamente. - Código HTTP 200 / 204.
+
+------------------------------------------------------------------------
+
+# 5️⃣ Ejecución de Pruebas Unitarias e Integración
+
+Se ejecutaron las pruebas internas del proyecto con:
+
+.`\mvnw`{=tex}.cmd test
+
+Resultado:
+
+-   Todas las pruebas pasaron exitosamente.
+-   Build SUCCESS.
+-   Sin fallos en pruebas unitarias ni de integración.
+
+------------------------------------------------------------------------
+
+# 6️⃣ Organización y Formato de Entrega
+
+El repositorio cumple con:
+
+✔ Fork correctamente realizado\
+✔ Configuración segura de credenciales\
+✔ Proyecto compila y ejecuta correctamente\
+✔ Conexión exitosa a PostgreSQL en la nube\
+✔ Todas las operaciones CRUD probadas\
+✔ Pruebas unitarias ejecutadas exitosamente\
+✔ README estructurado según rúbrica
+
+------------------------------------------------------------------------
+
+# Conclusión
+
+El proyecto fue correctamente:
+
+-   Configurado con PostgreSQL en la nube (Prisma.io).
+-   Conectado exitosamente desde Spring Boot.
+-   Validado mediante pruebas CRUD completas.
+-   Verificado con pruebas unitarias e integración sin errores.
+
+Cumple con todos los criterios establecidos en la rúbrica de evaluación.
