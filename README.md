@@ -42,8 +42,7 @@ al repositorio).
 
 Contenido configurado:
 
-DB_URL=jdbc:postgresql://`<host>`{=html}:`<port>`{=html}/`<database>`{=html}
-DB_USERNAME=`<usuario>`{=html} DB_PASSWORD=`<contraseña>`{=html}
+DB_URL=jdbc:postgresql://postgres://5416f62cf0029e8b3393bc2ad9c920291f7cc56618ec6ff80d1d4f5ddf44aeb0:sk_F5bY-ix-oiNeZfOXJJA1v@db.prisma.io:5432/postgres?sslmode=require
 
 Se verificó que la base de datos se encuentra activa y accesible desde
 la aplicación Spring Boot.
