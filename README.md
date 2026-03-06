@@ -10,7 +10,9 @@
 Este laboratorio documenta las pruebas realizadas a una API REST para la gestión de estudiantes.
 Las peticiones fueron ejecutadas en un entorno local utilizando herramientas como **Postman** o **Insomnia**.
 
+<<<<<<< HEAD
 La API se ejecuta en el siguiente endpoint base:
+=======
 
 ```
 http://localhost:8080/api/students
